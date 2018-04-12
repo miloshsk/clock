@@ -10,8 +10,9 @@ class Clock{
 		var now = new Date();
 		var hour  = now.getHours();
 		var background = document.body;
-		if(hour >= 20 && hour <= 6) {
-			background.style.backgroundColor = '#121020'
+		console.log(hour >= 20 );
+		if(hour >= 20 && hour <= 0 || hour >= 0 && hour <= 6 ) {
+			background.style.backgroundColor = '#546BAB'
 		} else {
 			background.style.backgroundColor = '#ECF7CC'
 		}
