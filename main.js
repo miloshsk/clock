@@ -92,24 +92,31 @@ function pad0(value) {
 }
 
 var clock = new Clock( document.querySelector('.clock-display'));
-
+var buttons = document.querySelector('.buttons-wrapper');
 var startButton = document.querySelector('.start');
-startButton.addEventListener('click', function() {
-	clock.time('startClock');
-	timerStart.setAttribute('disabled','disabled');
-	this.setAttribute('disabled','disabled');
-});
-
 var stopButton = document.querySelector('.stop');
-stopButton.addEventListener('click', function() {
-	timerStart.removeAttribute('disabled');
-	startButton.removeAttribute('disabled');
-	clock.time('stop');
-});
-
 var timerStart = document.querySelector('.timer');
-timerStart.addEventListener('click', function() {
-	clock.time('startTimer');
-	startButton.setAttribute('disabled','disabled');
-	this.setAttribute('disabled','disabled');
-});
+
+buttons.addEventListener('click', function(e) {
+	var target = e.target;
+	switch(target) {
+		case startButton:  {
+			clock.time('startClock');
+			timerStart.setAttribute('disabled','disabled');
+			startButton.setAttribute('disabled','disabled');
+			break;
+		}
+		case stopButton: {
+			timerStart.removeAttribute('disabled');
+			startButton.removeAttribute('disabled');
+			clock.time('stop');
+			break;
+		}
+		case timerStart: {
+			clock.time('startTimer');
+			startButton.setAttribute('disabled','disabled');
+			startButton.setAttribute('disabled','disabled');
+			break;
+		}
+	}	
+})
