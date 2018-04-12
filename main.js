@@ -115,7 +115,7 @@ buttons.addEventListener('click', function(e) {
 		case timerStart: {
 			clock.time('startTimer');
 			startButton.setAttribute('disabled','disabled');
-			startButton.setAttribute('disabled','disabled');
+			timerStart.setAttribute('disabled','disabled');
 			break;
 		}
 	}	
